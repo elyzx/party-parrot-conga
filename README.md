@@ -12,14 +12,14 @@ The game must be created using HTML, CSS, Javascript (Canvas, DOM, Basic JS, Cla
 
 Party Parrot Conga is a fun new twist on the classic Snake game. We've removed the Snakes and replaced them with lovely Parrots that are there to party with you. 
 
-Using your left and right arrow keys, collide into as many Lonely Parrots as possible to add them to your Conga. The rules are simple: collect ten Lonely Parrots without crashing into the Conga or leaving the Party!
+Using your arrow keys, collide into as many Lonely Parrots as possible to add them to your Conga. The rules are simple: collect ten Lonely Parrots without crashing into the Conga or leaving the Party!
 
 ## MVP
 - The game starts with a Parrot Conga (consisting of two parrots) moving forwards into the middle of the perimeter. This is so the Parrot Conga does not immediately collide with the perimeter. 
-- The user can change the direction of the Parrot Conga using the Left and Right keys. The Parrot Conga always turns 90 degrees per key press.
+- The user can change the direction of the Parrot Conga using the arrow keys. The Parrot Conga always turns 90 degrees per key press.
 - A Lonely Parrot is placed in a random location within the perimeter. It should not be directly next to the perimeter or on top of the Parrot Conga.
-- When the Parrot Conga collides with the Lonely Parrot, the Parrot Conga gets longer and another Lonely Parrot appears. 
-- As the Parrot Conga gets longer, the game gets more difficult. 
+- When the Parrot Conga collides with the Lonely Parrot, the Parrot Conga gets longer and the next Lonely Parrot appears. There is a score count for the user to keep track of progress.
+- The game gets more difficult ss the Parrot Conga gets longer. In addition, when the user has a score of five, the Parrot Conga starts moving faster.
 
 Win Condition: If ten Lonely Pardots are added to the Conga, the user is taken to the Winning Screen.
 
@@ -33,11 +33,38 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 - Toggle to increase or decrease the Conga speed
 - Leaderboard based on browser session
 
-## Data Structure
+## Structure
+
+## main.js
+- buildSplashScreen() {}
+- buildGameScreen() {}
+- buildGameOverScreen() {}
+
+## game.js
+- startGame() {}
+- getScore() {}
+- getPerimeter() {}
+- detectCollision() {}
+- gameOver() {}
+- reStart() {}
+
+## parrotconga.js
+- draw() {}
+- move() {}
+- getRandomPositionWithinRange() {}
+- getRandomDirection() {}
+- getPosition() {}
+- getLength() {}
+
+## lonelyparrot.js
+- draw() {}
+- getRandomPositionWithinRange() {}
 
 ## States & Transitions
+- startScreen
+- gamePlayScreen
+- gameOverScreen
 
 ## Task List
 
 ## Links
-
