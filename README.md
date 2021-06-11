@@ -10,9 +10,9 @@ The game must be created using HTML, CSS, Javascript (Canvas, DOM, Basic JS, Cla
 
 ## Description
 
-Party Parrot Conga is a fun new twist on the classic Snake game. 
+Party Parrot Conga is a fun new twist on the classic Snake game. We've removed the Snakes and replaced them with lovely Parrots that are there to party with you. 
 
-We've removed the Snakes and replaced them with lovely Parrots that are there to party with you. The rules are simple, don't crash into the Conga or leave the Party. 
+Using your left and right arrow keys, collide into as many Lonely Parrots as possible to add them to your Conga. The rules are simple: collect ten Lonely Parrots without crashing into the Conga or leaving the Party!
 
 ## MVP
 - The game starts with a Parrot Conga (consisting of two parrots) moving forwards into the middle of the perimeter. This is so the Parrot Conga does not immediately collide with the perimeter. 
@@ -21,7 +21,7 @@ We've removed the Snakes and replaced them with lovely Parrots that are there to
 - When the Parrot Conga collides with the Lonely Parrot, the Parrot Conga gets longer and another Lonely Parrot appears. 
 - As the Parrot Conga gets longer, the game gets more difficult. 
 
-Win Condition: If 10 Lonely Pardots are added to the Conga, the user is taken to the Winning Screen.
+Win Condition: If ten Lonely Pardots are added to the Conga, the user is taken to the Winning Screen.
 
 Lose Condition: If the Parrot Conga collides with itself or the perimeter, the user is taken to the Game Over screen.
 
