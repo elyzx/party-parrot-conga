@@ -36,8 +36,8 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 ## Structure
 
 ## main.js
-- buildSplashScreen() {}
-- buildGameScreen() {}
+- buildStartScreen() {}
+- buildGamePlayScreen() {}
 - buildGameOverScreen() {}
 
 ## game.js
