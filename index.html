@@ -1,41 +1,18 @@
+
 <!DOCTYPE html>
-<HTML lang="en">
+<html lang="en">
 <head>
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Party Parrot Conga</title>
-    <link rel="stylesheet" href="./style.css" >
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Parrot Conga</title>
+    <link rel="stylesheet" href="style.css" >
 </head>
-
 <body>
-    <div>
-        <div class ="startScreenContainer" style="display:none"> 
-            <!-- CHANGE STYLE ABOVE WHEN GAME IS READY-->
-            <h1 id= "introTitle">Party Parrot Conga</h1>
-            <p id="introText">
-                Party Parrot Conga is a fun new twist on the classic Snake game. We've removed the Snakes and replaced them with lovely Parrots that are there to party with you.
-            </p>
-            <button id="start">Start Game</button>
-        </div>
+    <button id="start">Start Game</button>
+    <canvas width="1000" height="700"></canvas>
 
-        <canvas id = "gameCanvas" width="500" height ="500" style="display:block"></canvas>
-        <!-- CHANGE STYLE ABOVE WHEN GAME IS READY-->
-
-        <div class ="gameOverContainer" style="display:none">
-            <h1 id = gameOverTitle>Game Over</h1>
-            <p id="gameOverText">Try again?</p>
-            <button id ="restart">Restart Game</button>
-        </div>
-        <div class="winScreenContainer" style="display:none">
-            <h1 id ="winTitle">Yay! You won!</h1>
-            <p id="winText">Congratulations. Play again?</p>
-            <button id ="restart">Restart Game</button>
-        </div>
-    </div>
+    <button id="restart">Restart Game</button>
 
     <script src="index.js" ></script>
-
 </body>
 </html>

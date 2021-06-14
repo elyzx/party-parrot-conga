@@ -1,103 +1,129 @@
-// CANVAS
-let canvas = document.getElementById("gameCanvas")
-let ctx = canvas.getContext("2d")
-let width = 500; // think about how can I not hard code this?
-let height = 500; // as i've already defined this in the html file
-let cellWidth = 10;
-let conga = [];
-let direction = "right"";
-let score = 0;
+let canvas = document.querySelector('canvas')
+canvas.style.backgroundColor = "#302c2c"
+
+let ctx = canvas.getContext('2d')
+
+// The DOM of the start and the restart buttons
+let startBtn = document.querySelector('#start')
+let restartBtn = document.querySelector('#restart')
 let gameOver = false;
+let intervalId = null
+let incrX = 0;
+let incrY = 1;
+let speed = 5;
 
-// STATES
-let startScreen = document.querySelector("startScreenContainer");
-let gameOverScreen = document.querySelector("gameOverContainer");
-let winScreen = document.querySelector("winScreenContainer")
+const startingX = 100
+const startingY = 80
+const startingDirection = "right"
+let snakeX = startingX
+let snakeY = startingY
+let direction = startingDirection
+let score = 0
 
-// BUTTONS
-let startButton = document.getElementById("start")
-let restartButton = document.getElementById("restart")
-
-// IMAGES
-let parrot = new Image();
-parrot.src = "images/parrot.gif";
-
-
-// FUNCTIONS
-function startGame() {
-    gameCanvas.style.display="block";
-    createConga();
-    createParrot();
+function drawSnake() {
+    ctx.beginPath()
+    ctx.fillStyle = '#4af0bb'
+    ctx.rect(snakeX, snakeY, 20, 20);
+    ctx.fill()
+    ctx.closePath()
 }
 
-startGame();
+function moveSnake() {
+    if (direction == 'up') {
+        incrX = 0
+        incrY = -1
+    }
+    if (direction == 'down') {
+        incrX = 0
+        incrY = 1
+    }
+    if (direction == 'left') {
+        incrX = -1
+        incrY = 0
+    }
+    if (direction == 'right') {
+        incrX = 1
+        incrY = 0
+    }
+    snakeX = snakeX + incrX * speed
+    snakeY = snakeY + incrY * speed
+}
 
-// create the conga
-function createConga () {
-    let length = 3;
-    congaArray = [];
-    for (let i = length-1; 0 >= 0; i--) 
-    congaArray.push({x: 1, yx:0})
+function collision() {
+    if (snakeX + 20 >= canvas.width) {
+        gameOver = true
+    }
+    if (snakeX <= 0) {
+        gameOver = true
+    }
+
+    if (snakeY + 20 >= canvas.height) {
+        gameOver = true
+    }
+    if (snakeY <= 0) {
+        gameOver = true
+    }
+    
+    // when the snake hits the border
+    // when the snake hits itself
+    // gameOver = true, if hits anything
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    drawSnake()
+    moveSnake()
+    collision()
+    if (gameOver) {
+        cancelAnimationFrame( intervalId )
+        canvas.style.display = 'none'
+        restartBtn.style.display = 'block'
+    } else {
+        intervalId = requestAnimationFrame(animate)
+    }
 }
 
 
-// create the lonely parrot
-function createParrot() {
-    randomLocation = {
-        x: Math.round(Math.random() * (width - 2 ) / cw),
-        y: Math.round(Math.random() * (height - 20) / cw)
-    }
+
+function start(){
+    canvas.style.display = 'block'
+    restartBtn.style.display = 'none'
+    startBtn.style.display = 'none'
+    animate()
 }
 
-function moveConga() {};
-function drawParrot() {};
-function detectCollision() {};
-function clearBoard() {};
-function getScore() {};
-function endGame() {;}
+window.addEventListener('load', () => {
+    canvas.style.display = 'none'
+    restartBtn.style.display = 'none'
 
-// KEYBOARD EVENTS - PRESS
-document.addEventListener("keydown", (event) => {
-    if (event.key == "ArrowLeft") {
-        isRightArrow = false;
-        isLeftArrow = true;
-        isArrowUp = false;
-        isArrowDown = false;
-    }
-    else if (event.key == "ArrowRight") {
-        isRightArrow = true;
-        isLeftArrow = false;
-        isArrowUp = false;
-        isArrowDown = false;
-    }
-    else if (event.key == "ArrowUp") {
-        isRightArrow = false;
-        isLeftArrow = false;
-        isArrowUp = true;
-        isArrowDown = false;
-    }
-    else if (event.key == "ArrowDonw") {
-        isRightArrow = false;
-        isLeftArrow = false;
-        isArrowUp = false;
-        isArrowDown = true;
-    }
-});
-// KEYBOARD EVENTS - RELEASE
-document.addEventListener("Keyup", (event) => {
-    isRightArrow = false;
-    isLeftArrow = false;
-    isArrowUp = false;
-    isArrowDown =false;
-});
+    document.addEventListener('keypress', (event) =>{
+        console.log("key pressed:", event.code)
+        if (event.code == 'KeyD') {
+            direction = "right"
+        }
+        if (event.code == 'KeyA') {
+            direction = "left"
+        }
+        if (event.code == 'KeyW') {
+            direction = "up"
+        }
+        if (event.code == 'KeyS') {
+            direction = "down"
+        }
+        console.log("direction changed to: ", direction)
+    })
 
-// MOUSE EVENTS
-startButton.addEventListener('click', () => {
-    startGame()
-})
+    startBtn.addEventListener('click', () => {
+        start()
+    })
 
-restartButton.addEventListener('click', () => {
-    gameOver = false;
-    score = 0;
-    startGame()
+    restartBtn.addEventListener('click', () => {
+        gameOver = false;
+        snakeX = startingX;
+        snakeY = startingY;
+        direction = startingDirection;
+        score = 0
+        start()
+    })
 })
