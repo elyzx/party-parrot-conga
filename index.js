@@ -1,6 +1,13 @@
 // CANVAS
 let canvas = document.getElementById("gameCanvas")
-let ctx = gameBoard.getContext("2d")
+let ctx = canvas.getContext("2d")
+let width = 500; // think about how can I not hard code this?
+let height = 500; // as i've already defined this in the html file
+let cellWidth = 10;
+let conga = [];
+let direction = "right"";
+let score = 0;
+let gameOver = false;
 
 // STATES
 let startScreen = document.querySelector("startScreenContainer");
@@ -8,30 +15,46 @@ let gameOverScreen = document.querySelector("gameOverContainer");
 let winScreen = document.querySelector("winScreenContainer")
 
 // BUTTONS
-let startButton = document.querySelector("#start")
-let restartButton = document.querySelector("#restart")
+let startButton = document.getElementById("start")
+let restartButton = document.getElementById("restart")
 
 // IMAGES
 let parrot = new Image();
 parrot.src = "images/parrot.gif";
 
-// VARIABLES 
-let score = 0;
-let gameOver = false;
-let conga = []; 
 
 // FUNCTIONS
 function startGame() {
-    startScreen.style.display="none";
-    canvas.style.display="block"
+    gameCanvas.style.display="block";
+    createConga();
+    createParrot();
 }
-function drawConga ()
-function moveConga()
-function drawParrot()
-function detectCollision()
-function clearBoard()
-function getScore()
-function endGame()
+
+startGame();
+
+// create the conga
+function createConga () {
+    let length = 3;
+    congaArray = [];
+    for (let i = length-1; 0 >= 0; i--) 
+    congaArray.push({x: 1, yx:0})
+}
+
+
+// create the lonely parrot
+function createParrot() {
+    randomLocation = {
+        x: Math.round(Math.random() * (width - 2 ) / cw),
+        y: Math.round(Math.random() * (height - 20) / cw)
+    }
+}
+
+function moveConga() {};
+function drawParrot() {};
+function detectCollision() {};
+function clearBoard() {};
+function getScore() {};
+function endGame() {;}
 
 // KEYBOARD EVENTS - PRESS
 document.addEventListener("keydown", (event) => {
