@@ -63,7 +63,7 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 - Make the Conga move 
 - Change direction with arrow keys
 - Detect collisions for Congo:
-- ..if collide with perimiter
+- ..if collide with perimeter
 - ..if collide with itself 
 - ..if collide with Parrot
 - Define the Congo head + tale
@@ -72,3 +72,5 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 - Game over conditions
 
 ## Links
+
+Trello: https://trello.com/b/tfL4vf7m/snake-parrot-congo
