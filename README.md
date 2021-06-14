@@ -36,29 +36,17 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 ## Structure
 
 ## main.js
-- buildStartScreen() {}
-- buildGamePlayScreen() {}
-- buildGameOverScreen() {}
-
-## game.js
-- startGame() {}
-- getScore() {}
-- getPerimeter() {}
-- detectCollision() {}
-- gameOver() {}
-- reStart() {}
-
-## parrotconga.js
-- draw() {}
-- move() {}
-- getRandomPositionWithinRange() {}
-- getRandomDirection() {}
-- getPosition() {}
-- getLength() {}
-
-## lonelyparrot.js
-- draw() {}
-- getRandomPositionWithinRange() {}
+- drawCongo
+- drawParrot
+- moveCongo
+- detectCollision
+- collectParrot
+- showScore
+- animate 
+- start
+- buildStartScreen
+- buildGamePlayScreen
+- buildGameOverScreen
 
 ## States & Transitions
 - startScreen
@@ -67,14 +55,19 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 
 ## Task List
 - Create the three states
-- set up DOM
-- Add event listeners
+- Set up the DOM
+- Add the event listeners
 - Create the canvas board
-- Draw the Parrot Conga
-- Make the Parrot Conga move
-- Use arrow keys to change direction
-- Add Lonely Parrot in random location
-- Detect collisions
+- Create/draw the Congo
+- Create/draw the Parrot
+- Make the Conga move 
+- Change direction with arrow keys
+- Detect collisions for Congo:
+- ..if collide with perimiter
+- ..if collide with itself 
+- ..if collide with Parrot
+- Define the Congo head + tale
+- Increase tale upon collision with Parrot
 - Calculate score for win condition
 - Game over conditions
 
