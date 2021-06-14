@@ -66,5 +66,16 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 - gameOverScreen
 
 ## Task List
+- Create the three states
+- set up DOM
+- Add event listeners
+- Create the canvas board
+- Draw the Parrot Conga
+- Make the Parrot Conga move
+- Use arrow keys to change direction
+- Add Lonely Parrot in random location
+- Detect collisions
+- Calculate score for win condition
+- Game over conditions
 
 ## Links
