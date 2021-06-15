@@ -26,6 +26,7 @@ let length = 1
 let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
+let winScore = 2
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
@@ -83,12 +84,12 @@ function moveSnake() {
 
 function collision() {
     // check if conga hits the borders
+    // there's a bug somewhere for the right and bottom borders
     if (snakeX + snakeWidth >= canvas.width) {
         gameOver = true
     }
     if (snakeX < 0) {
         gameOver = true
-        console.log("hit left:", snakeX, "/", snakeY)
     }
 
     if (snakeY + snakeWidth >= canvas.height) {
@@ -129,6 +130,15 @@ function collectParrot() {
     }
 }
 
+// https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win
+function checkWin() {
+    if (score == winScore) {
+        alert("You Win!");
+        document.location.reload();
+        clearInterval(interval);
+    }
+}
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     
@@ -137,6 +147,7 @@ function animate() {
     drawSnake()
     collision()
     collectParrot()
+    checkWin()
     drawParrot()
 
     if (gameOver) {
