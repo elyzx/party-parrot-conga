@@ -82,7 +82,7 @@ function moveSnake() {
 }
 
 function collision() {
-    // hit the borders
+    // check if conga hits the borders
     if (snakeX + snakeWidth >= canvas.width) {
         gameOver = true
     }
@@ -99,6 +99,13 @@ function collision() {
     }
     
     // check if conga hits itself
+    for (let i = 0; i < tail.length-1;i++) {
+        if (snakeX == tail[i].x && snakeY == tail[i].y) {
+            gameOver = true
+            console.log("hit itself:", snakeX, "/", snakeY)
+            console.log("tail:", tail)
+        }
+    }
 }
 
 function showScore() {
@@ -126,7 +133,6 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     
     showScore()
-    
     moveSnake()
     drawSnake()
     collision()
@@ -142,7 +148,6 @@ function animate() {
     }
 }
 
-
 function start(){
     canvas.style.display = 'block'
     restartBtn.style.display = 'none'
@@ -150,12 +155,14 @@ function start(){
     animate()
 }
 
+// Event listeners
 window.addEventListener('load', () => {
     canvas.style.display = 'none'
     restartBtn.style.display = 'none'
 
     document.addEventListener('keypress', (event) =>{
         console.log("key pressed:", event.code)
+        // struggling to get the arrow keys to work - the browser takes the functionality 
         if (event.code == 'KeyD' && direction != "left") {
             direction = "right"
         }
