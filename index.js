@@ -32,6 +32,7 @@ let parrotX = 0
 let parrotY = 0 
 
 // Functions
+
 function drawSnake() {
     tail.forEach( point => {
         ctx.beginPath()
@@ -171,22 +172,19 @@ window.addEventListener('load', () => {
     canvas.style.display = 'none'
     restartBtn.style.display = 'none'
 
-    document.addEventListener('keypress', (event) =>{
-        console.log("key pressed:", event.code)
-        // struggling to get the arrow keys to work - the browser takes the functionality 
-        if (event.code == 'KeyD' && direction != "left") {
+    document.addEventListener('keydown', (event) =>{
+        if (event.code == 'ArrowRight' && direction != "left") {
             direction = "right"
         }
-        if (event.code == 'KeyA' && direction != "right") {
+        if (event.code == 'ArrowLeft' && direction != "right") {
             direction = "left"
         }
-        if (event.code == 'KeyW' && direction != "down") {
+        if (event.code == 'ArrowUp' && direction != "down") {
             direction = "up"
         }
-        if (event.code == 'KeyS' && direction != "up") {
+        if (event.code == 'ArrowDown' && direction != "up") {
             direction = "down"
         }
-        console.log("direction changed to: ", direction)
     })
 
     startBtn.addEventListener('click', () => {
