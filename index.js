@@ -26,13 +26,14 @@ let length = 1
 let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
-let winScore = 10
+let winScore = 3
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
 
 // Functions
 
+// Create the Conga of Parrots
 function drawSnake() {
     tail.forEach( point => {
         ctx.beginPath()
@@ -43,6 +44,7 @@ function drawSnake() {
     })
 }
 
+// Create the Lonely Parrot
 function drawParrot() {
     if (haveParrot) {
         ctx.beginPath()
@@ -53,6 +55,14 @@ function drawParrot() {
     }
 }
 
+// Display the Score
+function showScore() {
+    ctx.fillStyle = 'white'
+    ctx.font = '22px Verdana'
+    ctx.fillText(`Score: ${score}`, 30, 30)
+}
+
+// Move the Conga around the Canvas
 function moveSnake() {
     if (direction == 'up') {
         incrX = 0
@@ -83,6 +93,8 @@ function moveSnake() {
     currentStep++;
 }
 
+
+// Detect Game Over Collisions
 function collision() {
     // check if conga hits the borders
     // there's a bug somewhere for the right and bottom borders
@@ -110,12 +122,7 @@ function collision() {
     }
 }
 
-function showScore() {
-    ctx.fillStyle = 'white'
-    ctx.font = '22px Verdana'
-    ctx.fillText(`Score: ${score}`, 30, 30)
-}
-
+// Detect Collision between Conga Head + Parrot
 function collectParrot() {
     if (!haveParrot) {
         // generate parrot
@@ -131,6 +138,7 @@ function collectParrot() {
     }
 }
 
+// Check Score against Win Condition
 // https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win
 function checkWin() {
     if (score == winScore) {
@@ -140,6 +148,7 @@ function checkWin() {
     }
 }
 
+// The Animation
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     
@@ -160,6 +169,7 @@ function animate() {
     }
 }
 
+// Start of the Game
 function start(){
     canvas.style.display = 'block'
     restartBtn.style.display = 'none'
@@ -167,11 +177,11 @@ function start(){
     animate()
 }
 
-// Event listeners
+// The Event Listeners
 window.addEventListener('load', () => {
     canvas.style.display = 'none'
     restartBtn.style.display = 'none'
-
+    // Keyboard events
     document.addEventListener('keydown', (event) =>{
         if (event.code == 'ArrowRight' && direction != "left") {
             direction = "right"
@@ -186,7 +196,7 @@ window.addEventListener('load', () => {
             direction = "down"
         }
     })
-
+    // Mouse Events
     startBtn.addEventListener('click', () => {
         start()
     })
