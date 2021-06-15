@@ -1,11 +1,13 @@
+// Canvas
 let canvas = document.querySelector('canvas')
 canvas.style.backgroundColor = "#302c2c"
-
 let ctx = canvas.getContext('2d')
 
-// The DOM of the start and the restart buttons
+// Buttons
 let startBtn = document.querySelector('#start')
 let restartBtn = document.querySelector('#restart')
+
+// Variables
 let gameOver = false;
 let intervalId = null
 let incrX = 0;
@@ -20,18 +22,23 @@ const startingDirection = "right"
 const snakeWidth = 20
 let snakeX = startingX
 let snakeY = startingY
+let length = 1
+let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
 
+// Functions
 function drawSnake() {
-    ctx.beginPath()
-    ctx.fillStyle = '#4af0bb'
-    ctx.rect(snakeX, snakeY, snakeWidth, snakeWidth);
-    ctx.fill()
-    ctx.closePath()
+    tail.forEach( point => {
+        ctx.beginPath()
+        ctx.fillStyle = '#4af0bb'
+        ctx.rect(point.x, point.y, snakeWidth-1, snakeWidth-1);
+        ctx.fill()
+        ctx.closePath()
+    })
 }
 
 function drawParrot() {
@@ -65,6 +72,11 @@ function moveSnake() {
     if (currentStep % numberOfAnimatesPerMove == 0) {
         snakeX = snakeX + incrX * speed
         snakeY = snakeY + incrY * speed
+
+        tail.push({"x": snakeX, "y": snakeY})
+        if (tail.length > length) {
+            tail.shift()
+        }
     }
     currentStep++;
 }
@@ -104,6 +116,7 @@ function collectParrot() {
     } else {
         if (parrotX == snakeX && parrotY == snakeY) {
             score++
+            length++
             haveParrot = false
         }
     }
@@ -113,6 +126,7 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     
     showScore()
+    
     moveSnake()
     drawSnake()
     collision()
@@ -142,16 +156,16 @@ window.addEventListener('load', () => {
 
     document.addEventListener('keypress', (event) =>{
         console.log("key pressed:", event.code)
-        if (event.code == 'KeyD') {
+        if (event.code == 'KeyD' && direction != "left") {
             direction = "right"
         }
-        if (event.code == 'KeyA') {
+        if (event.code == 'KeyA' && direction != "right") {
             direction = "left"
         }
-        if (event.code == 'KeyW') {
+        if (event.code == 'KeyW' && direction != "down") {
             direction = "up"
         }
-        if (event.code == 'KeyS') {
+        if (event.code == 'KeyS' && direction != "up") {
             direction = "down"
         }
         console.log("direction changed to: ", direction)
@@ -167,7 +181,9 @@ window.addEventListener('load', () => {
         snakeY = startingY;
         direction = startingDirection;
         haveParrot = false;
-        score = 0
+        score = 0;
+        length = 1;
+        tail = [{"x": snakeX, "y":snakeY}];
         start()
     })
 })
