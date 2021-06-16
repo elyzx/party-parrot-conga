@@ -44,8 +44,8 @@ function drawSnake() {
     let pattern = ctx.createPattern(parrotImg, "repeat")
     tail.forEach( point => {
         ctx.beginPath()
-        ctx.fillStyle = pattern
-        ctx.rect(point.x, point.y, snakeWidth-1, snakeWidth-1);
+        ctx.drawImage = pattern
+        ctx.rect(point.x, point.y, snakeWidth, snakeWidth);
         ctx.fill()
         ctx.closePath()
     })
@@ -55,8 +55,8 @@ function drawSnake() {
 function drawParrot() {
     if (haveParrot) {
         ctx.beginPath()
-        ctx.fillStyle = "parrotImg"
-        ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth);
+        ctx.drawImage = "parrotImg"
+        ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth)
         ctx.fill()
         ctx.closePath()
     }
