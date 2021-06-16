@@ -4,8 +4,8 @@ canvas.style.backgroundColor = "#302c2c"
 let ctx = canvas.getContext('2d')
 
 // Buttons
-let startBtn = document.querySelector('#start')
-let restartBtn = document.querySelector('#restart')
+let startBtn = document.querySelector("#start")
+let restartBtn = document.querySelector("#restart")
 
 // Variables
 let gameOver = false;
