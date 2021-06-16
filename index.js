@@ -36,6 +36,9 @@ let parrotY = 0
 let parrotImg = new Image();
 parrotImg.src = "images/parrot.gif"
 
+let catImg = new Image();
+catImg.src = "images/meow_party.gif"
+
 // Functions
 
 // Create the Conga of Parrots
@@ -59,8 +62,8 @@ function drawParrot() {
 // Display the Score
 function showScore() {
     ctx.fillStyle = 'white'
-    ctx.font = '22px Work Sans'
-    ctx.fillText(`Score: ${score}`, 30, 30)
+    ctx.font = '20px Work Sans'
+    ctx.fillText(`Score: ${score}`, 10, 30)
 }
 
 // Move the Conga around the Canvas
