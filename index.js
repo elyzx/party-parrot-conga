@@ -4,8 +4,8 @@ canvas.style.backgroundColor = "#302c2c"
 let ctx = canvas.getContext('2d')
 
 // Buttons
-let startBtn = document.querySelector("#start")
-let restartBtn = document.querySelector("#restart")
+let startBtn = document.querySelector("#startButton")
+let restartBtn = document.querySelector("#restartButton")
 
 // Variables
 let gameOver = false;
@@ -31,6 +31,24 @@ let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
 
+
+function startScreen() {
+    let body = document.querySelector("body")
+    startScreen = document.createElement("div")
+    startScreen.classList.add("startScreen")
+    startScreen.innerHTML = `
+        <button class ="start">START GAME</button>
+        <h2 class="subtitle">How many parrots can YOU collect?</h2>
+        <h2 class="instructions">Use the arrow keys to navigate the conga"</h2>
+        <img src="images/parrot.gif" alt="Party Parrot" class="parrot">
+        `
+    body.appendChild(startScreen)
+    let startScreenButton = startScreen.querySelector("start")
+    startScreenButton.addEventListener("click", function() {
+        start()
+    })
+
+}
 // Functions
 
 // Create the Conga of Parrots
@@ -92,7 +110,6 @@ function moveSnake() {
     }
     currentStep++;
 }
-
 
 // Detect Game Over Collisions
 function collision() {
