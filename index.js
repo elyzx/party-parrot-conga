@@ -33,7 +33,6 @@ let parrotY = 0
 
 
 // Images
-
 let parrotImg = new Image();
 parrotImg.src = "images/parrot.gif"
 
@@ -41,11 +40,14 @@ parrotImg.src = "images/parrot.gif"
 
 // Create the Conga of Parrots
 function drawSnake() {
-    let pattern = ctx.createPattern(parrotImg, "repeat")
+    // let pattern = ctx.createPattern(parrotImg, "repeat")
     tail.forEach( point => {
+        // ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
         ctx.beginPath()
-        ctx.drawImage = pattern
-        ctx.rect(point.x, point.y, snakeWidth, snakeWidth);
+        ctx.rect(point.x, point.y, snakeWidth, snakeWidth)
+        // ctx.fillStyle = pattern;
+        // ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
+        // ctx.fillRect(point.x, point.y, snakeWidth, snakeWidth)
         ctx.fill()
         ctx.closePath()
     })
@@ -54,11 +56,11 @@ function drawSnake() {
 // Create the Lonely Parrot
 function drawParrot() {
     if (haveParrot) {
-        ctx.beginPath()
-        ctx.drawImage = "parrotImg"
-        ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth)
-        ctx.fill()
-        ctx.closePath()
+        ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
+        // ctx.beginPath()
+        // ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth)
+        // ctx.fill()
+        // ctx.closePath()
     }
 }
 

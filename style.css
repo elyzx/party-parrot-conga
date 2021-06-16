@@ -23,9 +23,10 @@ h1 {
     padding: 10px;
 }
 
-.parrotImg {
-    object-fit: scale-down;
+/* parrotImg {
+    object-fit: contain;
 }
+*/
 
 /*-- BUTTONS --*/
 .startBtn {
