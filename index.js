@@ -19,7 +19,7 @@ let currentStep = 0;
 const startingX = 100
 const startingY = 80
 const startingDirection = "right"
-const snakeWidth = 40
+const snakeWidth = 60
 let snakeX = startingX
 let snakeY = startingY
 let length = 1
@@ -40,16 +40,8 @@ parrotImg.src = "images/parrot.gif"
 
 // Create the Conga of Parrots
 function drawSnake() {
-    // let pattern = ctx.createPattern(parrotImg, "repeat")
     tail.forEach( point => {
-        // ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
-        ctx.beginPath()
-        ctx.rect(point.x, point.y, snakeWidth, snakeWidth)
-        // ctx.fillStyle = pattern;
-        // ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
-        // ctx.fillRect(point.x, point.y, snakeWidth, snakeWidth)
-        ctx.fill()
-        ctx.closePath()
+        ctx.drawImage(parrotImg, point.x, point.y, snakeWidth, snakeWidth)
     })
 }
 
