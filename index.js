@@ -26,19 +26,25 @@ let length = 1
 let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
-let winScore = 3
+let winScore = 5
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
 
 
+// Images
+
+let parrotImg = new Image();
+parrotImg.src = "images/parrot.gif"
+
 // Functions
 
 // Create the Conga of Parrots
 function drawSnake() {
+    let pattern = ctx.createPattern(parrotImg, "repeat")
     tail.forEach( point => {
         ctx.beginPath()
-        ctx.fillStyle = '#4af0bb'
+        ctx.fillStyle = pattern
         ctx.rect(point.x, point.y, snakeWidth-1, snakeWidth-1);
         ctx.fill()
         ctx.closePath()
@@ -49,7 +55,7 @@ function drawSnake() {
 function drawParrot() {
     if (haveParrot) {
         ctx.beginPath()
-        ctx.fillStyle = '#f0bb4a'
+        ctx.fillStyle = "parrotImg"
         ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth);
         ctx.fill()
         ctx.closePath()
