@@ -32,23 +32,6 @@ let parrotX = 0
 let parrotY = 0 
 
 
-function startScreen() {
-    let body = document.querySelector("body")
-    startScreen = document.createElement("div")
-    startScreen.classList.add("startScreen")
-    startScreen.innerHTML = `
-        <button class ="start">START GAME</button>
-        <h2 class="subtitle">How many parrots can YOU collect?</h2>
-        <h2 class="instructions">Use the arrow keys to navigate the conga"</h2>
-        <img src="images/parrot.gif" alt="Party Parrot" class="parrot">
-        `
-    body.appendChild(startScreen)
-    let startScreenButton = startScreen.querySelector("start")
-    startScreenButton.addEventListener("click", function() {
-        start()
-    })
-
-}
 // Functions
 
 // Create the Conga of Parrots
