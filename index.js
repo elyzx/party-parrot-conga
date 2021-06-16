@@ -1,6 +1,6 @@
 // Canvas
 let canvas = document.querySelector('canvas')
-canvas.style.backgroundColor = "#302c2c"
+canvas.style.border = '1px solid black'
 let ctx = canvas.getContext('2d')
 
 // Buttons
@@ -59,7 +59,7 @@ function drawParrot() {
 // Display the Score
 function showScore() {
     ctx.fillStyle = 'white'
-    ctx.font = '22px Verdana'
+    ctx.font = '22px Work Sans'
     ctx.fillText(`Score: ${score}`, 30, 30)
 }
 

@@ -17,7 +17,7 @@ h1 {
 }
 
 /*-- BUTTONS --*/
-.start {
+.startBtn {
     display: block;
     position: relative;
     cursor: pointer;
@@ -25,11 +25,17 @@ h1 {
     color: black;
 }
 
+.restartBtn {
+    display: block
+}
+
 /*-- START SCREEN --*/
 
 
 /*-- GAME PLAY SCREEN --*/
-
+.canvas {
+    border: 2px solid black;
+}
 
 /*-- GAME OVER SCREEN --*/
 
