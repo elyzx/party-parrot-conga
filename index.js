@@ -98,14 +98,14 @@ function moveSnake() {
 function collision() {
     // check if conga hits the borders
     // there's a bug somewhere for the right and bottom borders
-    if (snakeX + snakeWidth >= canvas.width) {
+    if (snakeX + snakeWidth > canvas.width) {
         gameOver = true
     }
     if (snakeX < 0) {
         gameOver = true
     }
 
-    if (snakeY + snakeWidth >= canvas.height) {
+    if (snakeY + snakeWidth > canvas.height) {
         gameOver = true
     }
     if (snakeY < 0) {
