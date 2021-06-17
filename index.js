@@ -3,13 +3,20 @@ let canvas = document.querySelector('canvas')
 canvas.style.border = '1px solid black'
 let ctx = canvas.getContext('2d')
 
-// Buttons
+// DOM
 let startBtn = document.querySelector("#startButton")
-let restartBtn = document.querySelector("#restartButton")
+let restartBtn1 = document.querySelector("#restartButton1")
+let restartBtn2 = document.querySelector("#restartButton2")
+
+let introSection = document.querySelector("#introScr")
+let gamePlaySection = document.querySelector("#playGame")
+let gameOverSection = document.querySelector("#gameOver")
+let winningSection = document.querySelector("#winner")
 
 // Variables
 let gameOver = false;
-let intervalId = null
+let hasWon = false;
+let intervalId = null;
 let incrX = 0;
 let incrY = 1;
 let speed = 20;
@@ -26,7 +33,7 @@ let length = 1
 let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
-let winScore = 5
+let winScore = 10
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
@@ -37,7 +44,6 @@ let parrotImg = new Image();
 parrotImg.src = "images/parrot.gif"
 
 // Music
-
 let gameMusic = new Audio();
 gameMusic.src = "music/techno-loop.mp3"
 gameMusic.volume = 0.2
@@ -103,7 +109,6 @@ function moveSnake() {
 // Detect Game Over Collisions
 function collision() {
     // check if conga hits the borders
-    // there's a bug somewhere for the right and bottom borders
     if (snakeX + snakeWidth > canvas.width) {
         gameOver = true
     }
@@ -122,8 +127,6 @@ function collision() {
     for (let i = 0; i < tail.length-1;i++) {
         if (snakeX == tail[i].x && snakeY == tail[i].y) {
             gameOver = true
-            console.log("hit itself:", snakeX, "/", snakeY)
-            console.log("tail:", tail)
         }
     }
 }
@@ -145,17 +148,16 @@ function collectParrot() {
 }
 
 // Check Score against Win Condition
-// https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Track_the_score_and_win
 function checkWin() {
     if (score == winScore) {
-        alert("You Win!");
-        document.location.reload();
-        clearInterval(interval);
+        hasWon = true
+        gameOver = true
     }
 }
 
 // The Animation
 function animate() {
+    console.log("animate")
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     
     showScore()
@@ -167,20 +169,32 @@ function animate() {
     drawParrot()
 
     if (gameOver) {
-        cancelAnimationFrame( intervalId )
-        canvas.style.display = 'none'
-        restartBtn.style.display = 'block'
-        gameMusic.pause()
+        if (hasWon) {
+            cancelAnimationFrame( intervalId )
+            introSection.style.display = 'none'
+            canvas.style.display = 'none'
+            gameOverSection.style.display = 'none'
+            winningSection.style.display = 'block'
+            gameMusic.pause()
+        } else {
+            cancelAnimationFrame( intervalId )
+            introSection.style.display = 'none'
+            canvas.style.display = 'none'
+            gameOverSection.style.display = 'block'
+            winningSection.style.display = 'none'
+            gameMusic.pause()
+        }
     } else {
         intervalId = requestAnimationFrame(animate)
     }
 }
 
 // Start of the Game
-function start(){
+function start() {
+    introSection.style.display = 'none'
     canvas.style.display = 'block'
-    restartBtn.style.display = 'none'
-    startBtn.style.display = 'none'
+    gameOverSection.style.display = 'none'
+    winningSection.style.display = 'none'
     animate()
     gameMusic.play()
 }
@@ -188,7 +202,8 @@ function start(){
 // The Event Listeners
 window.addEventListener('load', () => {
     canvas.style.display = 'none'
-    restartBtn.style.display = 'none'
+    winningSection.style.display = 'none'
+    gameOverSection.style.display = 'none'
     // Keyboard events
     document.addEventListener('keydown', (event) =>{
         if (event.code == 'ArrowRight' && direction != "left") {
@@ -209,7 +224,19 @@ window.addEventListener('load', () => {
         start()
     })
 
-    restartBtn.addEventListener('click', () => {
+    restartBtn1.addEventListener('click', () => {
+        gameOver = false;
+        snakeX = startingX;
+        snakeY = startingY;
+        direction = startingDirection;
+        haveParrot = false;
+        score = 0;
+        length = 1;
+        tail = [{"x": snakeX, "y":snakeY}];
+        start()
+    })
+
+    restartBtn2.addEventListener('click', () => {
         gameOver = false;
         snakeX = startingX;
         snakeY = startingY;

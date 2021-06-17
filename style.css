@@ -8,6 +8,7 @@ COLOURS
 /*-- GLOBAL --*/
 body {
     font-family: 'Work Sans', sans-serif;
+    text-align: center;
     background-color: #543b9f;
     background-image: url("images/background.jpg");
     display: flex;
@@ -19,15 +20,10 @@ body {
 h1 {
     color: black;
     font-size: 60px;
-    text-align: center;
     padding: 10px;
 }
 
-parrotImg {
-    object-fit: cover;
-}
-
-/*-- BUTTONS --*/
+/*-- BUTTONS
 .startBtn {
     display: block;
     position: relative;
@@ -39,6 +35,7 @@ parrotImg {
 .restartBtn {
     display: block
 }
+ --*/
 
 /*-- START SCREEN --*/
 
