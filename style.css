@@ -40,7 +40,15 @@ h3 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 55%;
+    width: 58%;
+}
+
+.center-smaller {
+    padding: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
   }
 
 .button {
