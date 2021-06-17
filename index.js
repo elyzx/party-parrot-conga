@@ -43,6 +43,9 @@ partyParrotImg.src = 'images/party-parrot.gif';
 let sadParrotImg = new Image();
 sadParrotImg.src = 'images/sad-parrot.gif';
 
+let majesticParrotImg = new Image();
+majesticParrotImg.src = 'images/majestic-af.gif';
+
 // MUSIC
 let gameMusic = new Audio();
 gameMusic.src = 'music/techno-loop.mp3';
@@ -67,7 +70,7 @@ function drawSnake() {
     });
 };
 
-// Create the Lonely Parrot
+// Create the Sad Parrot
 function drawParrot() {
     if (haveParrot) {
         ctx.drawImage(sadParrotImg, parrotX, parrotY, snakeWidth, snakeWidth);
@@ -76,8 +79,8 @@ function drawParrot() {
 
 // Display the Score
 function showScore() {
-    ctx.fillStyle = 'white';
-    ctx.font = '20px Work Sans';
+    ctx.fillStyle = '#543b9f';
+    ctx.font = '22px Work Sans';
     ctx.fillText(`Score: ${score}`, 10, 30);
 };
 
@@ -134,7 +137,7 @@ function collision() {
     };
 };
 
-// Detect Collision between Conga Head + Parrot
+// Detect Collision between Conga Head + Sad Parrot
 function collectParrot() {
     if (!haveParrot) {
         // generate parrot
