@@ -3,10 +3,9 @@ COLOURS
 #543b9f
 #5ce1e6
 #d9d9d9
-#FF8D8B -- colour of the parrot
+#FF5FFB -- colour of the parrot
 -- */
 
-/*-- GLOBAL --*/
 body {
     font-family: 'Work Sans', sans-serif;
     text-align: center;
@@ -24,7 +23,15 @@ h1 {
     padding: 10px;
 }
 
-/*-- BUTTONS --*/
+h2 {
+  color: black;
+  font-size: 30px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
 .button {
     background-color: #543b9f;
     border: none;
@@ -44,14 +51,10 @@ h1 {
     color: black;
 }
 
-/*-- START SCREEN --*/
-
-
-/*-- GAME PLAY SCREEN --*/
-
-
-/*-- GAME OVER SCREEN --*/
-
-
-/*-- WINNING SCREEN --*/
-
+.center {
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
