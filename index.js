@@ -218,6 +218,7 @@ window.addEventListener('load', () => {
     });
     restartBtn1.addEventListener('click', () => {
         gameOver = false;
+        hasWon = false;
         snakeX = startingX;
         snakeY = startingY;
         direction = startingDirection;
@@ -230,6 +231,7 @@ window.addEventListener('load', () => {
     // Restart button
     restartBtn2.addEventListener('click', () => {
         gameOver = false;
+        hasWon = false;
         snakeX = startingX;
         snakeY = startingY;
         direction = startingDirection;
