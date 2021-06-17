@@ -1,5 +1,7 @@
 # Party Parrot Conga
 
+https://elyzx.github.io/party-parrot-conga/ 
+
 ## Objective 
 
 Create a simple in-browser game with three states (start screen, game play and game over) and the ability to restart. 
@@ -74,5 +76,3 @@ Lose Condition: If the Parrot Conga collides with itself or the perimeter, the u
 ## Links
 
 Trello: https://trello.com/b/tfL4vf7m/snake-parrot-congo
-
-Github Pages: https://elyzx.github.io/party-parrot-conga/
