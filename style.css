@@ -23,19 +23,25 @@ h1 {
     padding: 10px;
 }
 
-/*-- BUTTONS
-.startBtn {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    background-color: #5ce1e6;
-    color: black;
+/*-- BUTTONS --*/
+.button {
+    background-color: #543b9f;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 18px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
 }
 
-.restartBtn {
-    display: block
+.button:hover {
+    background-color: #FF8D8B;
+    color: black;
 }
- --*/
 
 /*-- START SCREEN --*/
 

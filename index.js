@@ -1,4 +1,4 @@
-// Canvas
+// CANVAS
 let canvas = document.querySelector('canvas')
 canvas.style.border = '1px solid black'
 let ctx = canvas.getContext('2d')
@@ -7,13 +7,12 @@ let ctx = canvas.getContext('2d')
 let startBtn = document.querySelector("#startButton")
 let restartBtn1 = document.querySelector("#restartButton1")
 let restartBtn2 = document.querySelector("#restartButton2")
-
 let introSection = document.querySelector("#introScr")
 let gamePlaySection = document.querySelector("#playGame")
 let gameOverSection = document.querySelector("#gameOver")
 let winningSection = document.querySelector("#winner")
 
-// Variables
+// VARIABLES
 let gameOver = false;
 let hasWon = false;
 let intervalId = null;
@@ -22,7 +21,6 @@ let incrY = 1;
 let speed = 20;
 let numberOfAnimatesPerMove = 10;
 let currentStep = 0;
-
 const startingX = 100
 const startingY = 80
 const startingDirection = "right"
@@ -39,17 +37,16 @@ let parrotX = 0
 let parrotY = 0 
 
 
-// Images
+// IMAGES
 let parrotImg = new Image();
 parrotImg.src = "images/parrot.gif"
 
-// Music
+// MUSIC
 let gameMusic = new Audio();
 gameMusic.src = "music/techno-loop.mp3"
 gameMusic.volume = 0.2
 
-// Functions
-
+// FUNCTIONS
 // Create the Conga of Parrots
 function drawSnake() {
     tail.forEach( point => {
@@ -199,7 +196,7 @@ function start() {
     gameMusic.play()
 }
 
-// The Event Listeners
+// EVENT LISTENERS
 window.addEventListener('load', () => {
     canvas.style.display = 'none'
     winningSection.style.display = 'none'
