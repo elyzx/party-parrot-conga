@@ -20,17 +20,27 @@ body {
 h1 {
     color: black;
     font-size: 60px;
-    padding: 10px;
+    padding: 2px;
 }
 
 h2 {
   color: black;
   font-size: 30px;
+  font-weight: 500;
 }
 
 h3 {
     font-size: 18px;
+    font-weight: 400;
 }
+
+.center {
+    padding: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 58%;
+  }
 
 .button {
     background-color: #543b9f;
@@ -50,11 +60,3 @@ h3 {
     background-color: #FF5FFB;
     color: black;
 }
-
-.center {
-    padding: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
