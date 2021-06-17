@@ -18,13 +18,13 @@ let hasWon = false;
 let intervalId = null;
 let incrX = 0;
 let incrY = 1;
-let speed = 20;
-let numberOfAnimatesPerMove = 10;
+let speed = 40;
+let numberOfAnimatesPerMove = 20;
 let currentStep = 0;
-const startingX = 100
-const startingY = 80
-const startingDirection = "right"
 const snakeWidth = 40
+const startingX = snakeWidth * 2
+const startingY = snakeWidth * 2
+const startingDirection = "right"
 let snakeX = startingX
 let snakeY = startingY
 let length = 1
@@ -38,8 +38,11 @@ let parrotY = 0
 
 
 // IMAGES
-let parrotImg = new Image();
-parrotImg.src = "images/parrot.gif"
+let partyParrotImg = new Image();
+partyParrotImg.src = "images/party-parrot.gif"
+
+let sadParrotImg = new Image();
+sadParrotImg.src = "images/sad-parrot.gif"
 
 // MUSIC
 let gameMusic = new Audio();
@@ -50,14 +53,14 @@ gameMusic.volume = 0.2
 // Create the Conga of Parrots
 function drawSnake() {
     tail.forEach( point => {
-        ctx.drawImage(parrotImg, point.x, point.y, snakeWidth, snakeWidth)
+        ctx.drawImage(partyParrotImg, point.x, point.y, snakeWidth, snakeWidth)
     })
 }
 
 // Create the Lonely Parrot
 function drawParrot() {
     if (haveParrot) {
-        ctx.drawImage(parrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
+        ctx.drawImage(sadParrotImg, parrotX, parrotY, snakeWidth, snakeWidth)
         // ctx.beginPath()
         // ctx.rect(parrotX, parrotY, snakeWidth, snakeWidth)
         // ctx.fill()
@@ -135,6 +138,7 @@ function collectParrot() {
         parrotY = Math.floor(getRandomInt(canvas.height - snakeWidth)/snakeWidth)*snakeWidth
         parrotX = Math.floor(getRandomInt(canvas.width - snakeWidth)/snakeWidth)*snakeWidth
         haveParrot = true
+        console.log(parrotY, parrotX)
     } else {
         if (parrotX == snakeX && parrotY == snakeY) {
             score++
