@@ -19,7 +19,7 @@ let currentStep = 0;
 const startingX = 100
 const startingY = 80
 const startingDirection = "right"
-const snakeWidth = 60
+const snakeWidth = 40
 let snakeX = startingX
 let snakeY = startingY
 let length = 1
@@ -36,8 +36,11 @@ let parrotY = 0
 let parrotImg = new Image();
 parrotImg.src = "images/parrot.gif"
 
-let catImg = new Image();
-catImg.src = "images/meow_party.gif"
+// Music
+
+let gameMusic = new Audio();
+gameMusic.src = "music/techno-loop.mp3"
+gameMusic.volume = 0.2
 
 // Functions
 
@@ -167,6 +170,7 @@ function animate() {
         cancelAnimationFrame( intervalId )
         canvas.style.display = 'none'
         restartBtn.style.display = 'block'
+        gameMusic.pause()
     } else {
         intervalId = requestAnimationFrame(animate)
     }
@@ -178,6 +182,7 @@ function start(){
     restartBtn.style.display = 'none'
     startBtn.style.display = 'none'
     animate()
+    gameMusic.play()
 }
 
 // The Event Listeners
