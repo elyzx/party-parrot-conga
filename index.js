@@ -8,7 +8,7 @@ let startBtn = document.querySelector('#startButton');
 let restartBtn1 = document.querySelector('#restartButton1');
 let restartBtn2 = document.querySelector('#restartButton2');
 let introSection = document.querySelector('#introScr');
-let gamePlaySection = document.querySelector('#playGame');
+let playGameSection = document.querySelector('#playGame')
 let gameOverSection = document.querySelector('#gameOver');
 let winningSection = document.querySelector('#winner');
 
@@ -170,21 +170,14 @@ function animate() {
     drawParrot();
     // checking for win/lose
     if (gameOver) {
+        cancelAnimationFrame(intervalId);
+        playGameSection.style.display = 'none';
+        gameMusic.pause();
         if (hasWon) {
-            cancelAnimationFrame(intervalId);
-            introSection.style.display = 'none';
-            canvas.style.display = 'none';
-            gameOverSection.style.display = 'none';
             winningSection.style.display = 'block';
-            gameMusic.pause();
-            winningMusic.play()
+            winningMusic.play();
         } else {
-            cancelAnimationFrame(intervalId);
-            introSection.style.display = 'none';
-            canvas.style.display = 'none';
             gameOverSection.style.display = 'block';
-            winningSection.style.display = 'none';
-            gameMusic.pause();
             gameOverMusic.play();
         };
     } else {
@@ -195,7 +188,8 @@ function animate() {
 // Start of the Game
 function start() {
     introSection.style.display = 'none';
-    canvas.style.display = 'block';
+    playGameSection.style.display = 'block';
+    // canvas.style.display = 'block';
     gameOverSection.style.display = 'none';
     winningSection.style.display = 'none';
     winningMusic.pause();
@@ -206,7 +200,8 @@ function start() {
 
 // EVENT LISTENERS
 window.addEventListener('load', () => {
-    canvas.style.display = 'none';
+    playGameSection.style.display = 'none';
+    // canvas.style.display = 'none';
     winningSection.style.display = 'none';
     gameOverSection.style.display = 'none';
     // Keyboard events
