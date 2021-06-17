@@ -1,6 +1,6 @@
 # Party Parrot Conga
 
-https://elyzx.github.io/party-parrot-conga/ 
+Play here: https://elyzx.github.io/party-parrot-conga/ 
 
 ## Objective 
 
