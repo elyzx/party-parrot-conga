@@ -1,6 +1,6 @@
 // CANVAS
 let canvas = document.querySelector('canvas')
-canvas.style.border = '1px solid black'
+canvas.style.border = '2px solid black'
 let ctx = canvas.getContext('2d')
 
 // DOM
