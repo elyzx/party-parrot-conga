@@ -31,7 +31,7 @@ let length = 1
 let tail = [{"x": snakeX, "y": snakeY}]
 let direction = startingDirection
 let score = 0
-let winScore = 10
+let winScore = 50
 let haveParrot = false
 let parrotX = 0
 let parrotY = 0 
@@ -48,6 +48,7 @@ sadParrotImg.src = "images/sad-parrot.gif"
 let gameMusic = new Audio();
 gameMusic.src = "music/techno-loop.mp3"
 gameMusic.volume = 0.2
+gameMusic.loop = true
 
 // FUNCTIONS
 // Create the Conga of Parrots
