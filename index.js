@@ -34,8 +34,7 @@ let score = 0;
 let winScore = 10;
 let haveParrot = false;
 let parrotX = 0;
-let parrotY = 0 ;
-
+let parrotY = 0;
 
 // IMAGES
 let partyParrotImg = new Image();
@@ -47,7 +46,7 @@ sadParrotImg.src = 'images/sad-parrot.gif';
 // MUSIC
 let gameMusic = new Audio();
 gameMusic.src = 'music/techno-loop.mp3';
-gameMusic.volume = 0.2;
+gameMusic.volume = 0.1;
 gameMusic.loop = true;
 
 // FUNCTIONS
