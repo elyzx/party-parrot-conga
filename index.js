@@ -49,6 +49,16 @@ gameMusic.src = 'music/techno-loop.mp3';
 gameMusic.volume = 0.1;
 gameMusic.loop = true;
 
+let gameOverMusic = new Audio();
+gameOverMusic.src = 'music/game-over.wav';
+gameOverMusic.volume = 0.1;
+gameOverMusic.loop = true;
+
+let winningMusic = new Audio ();
+winningMusic.src = 'music/winning.mp3';
+winningMusic.volume = 0.1;
+winningMusic.loop = true;
+
 // FUNCTIONS
 // Create the Conga of Parrots
 function drawSnake() {
@@ -167,6 +177,7 @@ function animate() {
             gameOverSection.style.display = 'none';
             winningSection.style.display = 'block';
             gameMusic.pause();
+            winningMusic.play()
         } else {
             cancelAnimationFrame(intervalId);
             introSection.style.display = 'none';
@@ -174,6 +185,7 @@ function animate() {
             gameOverSection.style.display = 'block';
             winningSection.style.display = 'none';
             gameMusic.pause();
+            gameOverMusic.play();
         };
     } else {
         intervalId = requestAnimationFrame(animate);
@@ -186,6 +198,8 @@ function start() {
     canvas.style.display = 'block';
     gameOverSection.style.display = 'none';
     winningSection.style.display = 'none';
+    winningMusic.pause();
+    gameOverMusic.pause();
     animate();
     gameMusic.play();
 };
